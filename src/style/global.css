@@ -1,0 +1,16 @@
+@import url(theme.css);
+@import url(font.css);
+@import url(header.css);
+@import url(menu.css);
+@import url(app.css);
+@import url(icon.css);
+@import url(button.css);
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    all: unset
+}

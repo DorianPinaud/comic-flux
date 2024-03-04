@@ -1,0 +1,18 @@
+@font-face {
+    font-family: text_font;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+
+@font-face {
+    font-family: icon_font;
+    src: url(fonts/Font_Awesome_6_Solid.otf);
+}
+
+:root {
+    --font-size-display: 3em;
+    --font-size-headline: 2em;
+    --font-size-title: 1.5em;
+    --font-size-body: 1em;
+    --font-size-label: 0.5em;
+}
