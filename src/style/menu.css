@@ -2,5 +2,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: var(--font-size-title);
+    font-size: var(--font-size-headline);
+    padding: 20px 0px 10px 20px;
 }

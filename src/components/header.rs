@@ -14,23 +14,19 @@ pub fn Header() -> Element {
                "Comic Flux"
             }
             button {
-                onclick: move |_| *menu_opened.write() = true,
+                onclick: move |_| {
+                    let val = *menu_opened.read(); 
+                    menu_opened.set(!val);
+                },
                 Icon {
                     icon: "\u{f0c9}".to_owned()
                 }
             }
         }
-        if *menu_opened.read() 
-        {
-                div {
-                    Menu {},
-                    button {
-                        onclick: move |_| *menu_opened.write() = false,
-                        Icon {
-                            icon: "\u{f00d}".to_owned()
-                        }
-                    }
-                }
-            }
-    }}
+    }
+    if *menu_opened.read() 
+    {
+        Menu {}
+    }
+}
 }
