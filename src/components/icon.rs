@@ -2,8 +2,8 @@
 use dioxus::prelude::*;
 
 #[component]
-pub fn Icon(cx: Scope, icon: String) -> Element {
-    render!(span {
+pub fn Icon( icon: String) -> Element {
+    rsx!(span {
         class: "icon",
         "{icon}"
     })

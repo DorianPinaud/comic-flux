@@ -7,10 +7,6 @@
     font: var(--font-size-headline) text_font;
 }
 
-.header h1 {
-    font: var(--font-size-headline) text_font;  
-}
-
 .header div {
     display: flex;
     flex-direction: row;

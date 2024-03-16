@@ -3,9 +3,8 @@ use dioxus::prelude::*;
 
 use crate::components::header::Header;
 
-#[component]
-pub fn App(cx: Scope) -> Element {
-    render!(div {
+pub fn App() -> Element {
+    rsx!(div {
         class: "app",
         Header {}
     })

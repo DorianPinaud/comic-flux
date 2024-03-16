@@ -3,9 +3,8 @@ use dioxus::prelude::*;
 
 use crate::components::icon::Icon;
 
-#[component]
-pub fn Menu(cx: Scope) -> Element {
-    render!(div {
+pub fn Menu() -> Element {
+    rsx!(div {
         class: "menu",
         button {
             Icon {
