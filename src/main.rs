@@ -5,6 +5,7 @@ use dioxus::desktop::Config;
 
 mod app;
 mod components;
+mod models;
 
 use crate::app::App;
 

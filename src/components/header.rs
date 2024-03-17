@@ -4,7 +4,6 @@ use dioxus::prelude::*;
 use crate::components::menu::Menu;
 use crate::components::icon::Icon;
 
-#[component]
 pub fn Header() -> Element {
     let mut menu_opened = use_signal(bool::default);
     rsx! {div {
