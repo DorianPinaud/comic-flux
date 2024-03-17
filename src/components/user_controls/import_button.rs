@@ -1,13 +1,8 @@
 #![allow(non_snake_case)]
 use dioxus::prelude::*;
 
-use image::buffer::ConvertBuffer;
-use image::codecs::png::PngEncoder;
-use image::DynamicImage;
-use image::ImageFormat;
 use image::load_from_memory;
 
-use base64::prelude::*;
 
 use zip::ZipArchive;
 
@@ -19,6 +14,7 @@ use rfd::FileDialog;
 
 use crate::components::icon::Icon;
 
+use crate::models::page::Page;
 use crate::models::project::Project;
 
 fn import_zip_images(path: PathBuf, mut project: Signal<Project>) -> Result<(), String> {
@@ -36,14 +32,27 @@ fn import_zip_images(path: PathBuf, mut project: Signal<Project>) -> Result<(), 
                         .and_then(|mut f| {
                             let mut writer: Vec<u8> = vec![];
                             std::io::copy(&mut f, &mut writer).expect("expect to succeed");
-                            load_from_memory(&writer).map_err(|err| err.to_string())
+                            load_from_memory(&writer)
+                                .map_err(|err| err.to_string())
+                                .map(|i| {
+                                    let path = std::path::Path::new(f.name());
+                                    Page::new(
+                                        path
+                                            .file_stem()
+                                            .and_then(|s| s.to_str())
+                                            .map(|s| s.to_string())
+                                            .unwrap_or("Unknown image".to_string()),
+                                        i
+                                    )
+                                })
                         })
                 )
-                .collect::<Result<Vec<DynamicImage>, _>>()
+                .collect::<Result<Vec<Page>, _>>()
         })
-        .map(|vec| {
+        .map(|mut vec| {
             project.with_mut(move |p| {
-                p.images = vec;
+                vec.sort_by_key(|i|i.name.clone());
+                p.pages = vec;
             })
         })
 }

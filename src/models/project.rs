@@ -1,9 +1,9 @@
 
-use image::DynamicImage;
+use crate::models::page::Page;
 
 #[derive(Default)]
 pub struct Project {
 
-    pub images: Vec<DynamicImage>
+    pub pages: Vec<Page>
 
 }

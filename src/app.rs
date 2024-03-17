@@ -2,6 +2,7 @@
 use dioxus::prelude::*;
 
 use crate::components::header::Header;
+use crate::components::page_reader::PageReader;
 
 use crate::models::project::Project;
 
@@ -10,5 +11,6 @@ pub fn App() -> Element {
     rsx!(div {
         class: "app",
         Header {}
+        PageReader {}
     })
 }

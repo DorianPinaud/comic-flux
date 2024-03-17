@@ -2,6 +2,6 @@
     font: var(--font-size-body) text_font;
     background-color: var(--color-surface);
     color: var(--color-on-surface);
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
 }

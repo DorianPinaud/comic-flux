@@ -5,10 +5,12 @@
 @import url(app.css);
 @import url(icon.css);
 @import url(button.css);
+@import url(page_reader.css);
 
 body {
     margin: 0px;
     padding: 0px;
+    scrollbar-width: none;
 }
 
 a {
